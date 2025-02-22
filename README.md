@@ -1,6 +1,6 @@
 # AI Assistant Client
 
-A modern, draggable AI Assistant interface built with Next.js that connects to a local AI server. The assistant provides an intuitive chat interface with debug information support.
+An AI Assistant interface built with Next.js that connects to a local AI server/agent. The assistant provides an intuitive chat interface with debug information support.
 
 ## Features
 
@@ -8,7 +8,6 @@ A modern, draggable AI Assistant interface built with Next.js that connects to a
 - 🎯 Draggable window positioning
 - 🔍 Debug information panel
 - 💬 Conversation thread management
-- 🎨 Modern, clean UI design
 - ⚡ Fast response times
 - 🔄 Loading states and animations
 
