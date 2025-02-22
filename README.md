@@ -2,7 +2,7 @@
 
 An AI Assistant interface built with Next.js that connects to a local AI server/agent. The assistant provides an intuitive chat interface with debug information support.
 
-## Screenshot
+## Interface
 
 ![AI Assistant Screenshot](docs/screenshot.png)
 
