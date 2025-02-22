@@ -1,47 +1,140 @@
-# Full-Stack AI Template
+# AI Assistant Client
 
-A modern full-stack template project for creating AI-powered applications.
+A modern, draggable AI Assistant interface built with Next.js that connects to a local AI server. The assistant provides an intuitive chat interface with debug information support.
 
-## Getting started
-To create a new project, explore the `/paths` directory to find different project templates, then use them to quickly scaffold your project!
+## Features
 
-You can customize the Path's prompt template to suit your needs.
+- 🤖 Real-time AI chat interface
+- 🎯 Draggable window positioning
+- 🔍 Debug information panel
+- 💬 Conversation thread management
+- 🎨 Modern, clean UI design
+- ⚡ Fast response times
+- 🔄 Loading states and animations
+
+## Prerequisites
+
+- Node.js 18.x or higher
+- npm or yarn
+- Running AI server at `http://localhost:8080`
+
+## Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/popand/assistant-client.git
+   cd assistant-client
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## API Integration
+
+The assistant connects to a local AI server endpoint:
+
+```typescript
+POST http://localhost:8080/execute
+Content-Type: application/json
+
+{
+  "input": "Your question here",
+  "debug": true
+}
+```
+
+Response format:
+```json
+{
+  "result": {
+    "final_output": {
+      "confidence": number,
+      "response": string
+    },
+    "steps": [
+      {
+        "action": string,
+        "input": object,
+        "output": object,
+        "timestamp": number
+      }
+    ]
+  },
+  "debug": [
+    {
+      "timestamp": string,
+      "level": string,
+      "message": string
+    }
+  ]
+}
+```
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/
+│   │   └── execute/
+│   │       └── route.ts    # API route handler
+│   │       └── page.tsx            # Main page component
+│   │       └── layout.tsx          # Root layout
+│   │       └── globals.css         # Global styles
+│   ├── components/
+│   │   ├── AIAssistant.tsx     # AI Assistant component
+│   │   └── AIAssistant.css     # Component styles
+│   └── components/
+│       └── AIAssistant.tsx     # AI Assistant component
+```
+
+## Features in Detail
+
+### Draggable Window
+- Click and drag the header to move the assistant window
+- Window stays within viewport bounds
+- Smooth dragging animation
+
+### Debug Information
+- Click the info icon on any assistant message
+- View detailed debug logs
+- Includes timestamps and execution steps
+
+### Thread Management
+- Start new conversation threads
+- Clear conversation history
+- Automatic scroll to latest message
 
 ## Development
-1. Install dependencies:
-```bash
-npm install
-```
 
-2. Start the development server:
-```bash
-npm run dev
-```
+### Available Scripts
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
 
-The page will automatically update as you make changes to the code.
+### Environment Variables
 
-## Preview
-When you start the development server, you'll see output similar to this:
-```bash
-> next dev
-  ▲ Next.js 14.2.7
-  - Local:        http://localhost:3000
- ✓ Starting...
- ✓ Ready in 2.2s
- ✓ Compiled / in 1725ms (529 modules)
-```
+No environment variables are required for basic functionality. The AI server URL is currently hardcoded to `http://localhost:8080`.
 
-This indicates that:
-- The Next.js server is running
-- Your local development URL is http://localhost:3000
-- The initial compilation is complete
-- The application is ready to use
+## Contributing
 
-## Technologies used
-This project uses the following technologies:
-- React with Next.js 14 App Router
-- TailwindCSS
-- Firebase Auth, Storage, and Database
-- Multiple AI endpoints including OpenAI, Anthropic, and Replicate using Vercel's AI SDK
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License.
