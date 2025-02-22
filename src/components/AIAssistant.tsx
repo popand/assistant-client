@@ -43,6 +43,8 @@ interface ApiResponse {
   }>;
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+
 const AIAssistant: React.FC<AIAssistantProps> = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
@@ -192,7 +194,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ isOpen, onClose }) => {
         });
         if (error.message.includes('Failed to fetch')) {
           return {
-            response: 'Unable to connect to the API. Please ensure the API server is running at http://localhost:8080',
+            response: `Unable to connect to the API. Please ensure the API server is running at ${API_URL}`,
             debug: undefined
           };
         }

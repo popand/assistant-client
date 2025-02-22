@@ -15,7 +15,7 @@ An AI Assistant interface built with Next.js that connects to a local AI server/
 
 - Node.js 18.x or higher
 - npm or yarn
-- Running AI server at `http://localhost:8080`
+- Running AI server (default: `http://localhost:8080`)
 
 ## Getting Started
 
@@ -30,19 +30,25 @@ An AI Assistant interface built with Next.js that connects to a local AI server/
    npm install
    ```
 
-3. Start the development server:
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` file and adjust the `NEXT_PUBLIC_API_URL` if your AI server runs on a different URL.
+
+4. Start the development server:
    ```bash
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## API Integration
 
-The assistant connects to a local AI server endpoint:
+The assistant connects to an AI server endpoint (configurable via `NEXT_PUBLIC_API_URL`):
 
 ```typescript
-POST http://localhost:8080/execute
+POST ${NEXT_PUBLIC_API_URL}/execute
 Content-Type: application/json
 
 {
@@ -86,14 +92,12 @@ src/
 │   ├── api/
 │   │   └── execute/
 │   │       └── route.ts    # API route handler
-│   │       └── page.tsx            # Main page component
-│   │       └── layout.tsx          # Root layout
-│   │       └── globals.css         # Global styles
-│   ├── components/
-│   │   ├── AIAssistant.tsx     # AI Assistant component
-│   │   └── AIAssistant.css     # Component styles
-│   └── components/
-│       └── AIAssistant.tsx     # AI Assistant component
+│   ├── page.tsx            # Main page component
+│   ├── layout.tsx          # Root layout
+│   └── globals.css         # Global styles
+├── components/
+│   ├── AIAssistant.tsx     # AI Assistant component
+│   └── AIAssistant.css     # Component styles
 ```
 
 ## Features in Detail
@@ -124,7 +128,14 @@ src/
 
 ### Environment Variables
 
-No environment variables are required for basic functionality. The AI server URL is currently hardcoded to `http://localhost:8080`.
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `NEXT_PUBLIC_API_URL` | URL of the AI server | `http://localhost:8080` |
+
+To configure the environment:
+1. Copy `.env.example` to `.env`
+2. Adjust the variables as needed
+3. Restart the development server if it's running
 
 ## Contributing
 
