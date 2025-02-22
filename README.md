@@ -2,6 +2,12 @@
 
 An AI Assistant interface built with Next.js that connects to a local AI server/agent. The assistant provides an intuitive chat interface with debug information support.
 
+## Screenshot
+
+![AI Assistant Screenshot](docs/screenshot.png)
+
+*AI Assistant interface showing the chat window with debug information panel*
+
 ## Features
 
 - 🤖 Real-time AI chat interface
@@ -92,12 +98,12 @@ src/
 │   ├── api/
 │   │   └── execute/
 │   │       └── route.ts    # API route handler
-│   ├── page.tsx            # Main page component
-│   ├── layout.tsx          # Root layout
-│   └── globals.css         # Global styles
-├── components/
-│   ├── AIAssistant.tsx     # AI Assistant component
-│   └── AIAssistant.css     # Component styles
+│   │   ├── page.tsx            # Main page component
+│   │   ├── layout.tsx          # Root layout
+│   │   └── globals.css         # Global styles
+│   ├── components/
+│   │   ├── AIAssistant.tsx     # AI Assistant component
+│   │   └── AIAssistant.css     # Component styles
 ```
 
 ## Features in Detail
